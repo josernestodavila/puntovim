@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/media/UDISK/src/beceem250'
+let g:netrw_dirhist_2='/home/jdavila/Vídeos/screencast'
+let g:netrw_dirhist_3='/home/jdavila/src/yaqr'
+let g:netrw_dirhist_4='/home/jdavila/src'
+let g:netrw_dirhist_5='/home/jdavila/src/pyqrnative'
