@@ -1,3 +1,6 @@
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
 if has("gui_running")
     colorscheme inkpot
     set guifont=Consolas\ 11
