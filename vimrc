@@ -77,6 +77,9 @@ map <F3> :NERDTreeToggle<CR>
 map <F4> :TlistToggle<CR>
 map <F2> :marks 
 
+" RagTag plugin config
+let g:ragtag_global_maps = 1
+
 " Map TaskList plugin
 map T : TaskList<CR>
 map P : TlistToggle<CR>
