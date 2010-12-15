@@ -1,85 +1,94 @@
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+" Example Vim configuration.
+" Copy or symlink to ~/.vimrc or ~/_vimrc.
 
-if has("gui_running")
-    colorscheme inkpot
-    set guifont=Consolas\ 11
-else
-    colorscheme elflord
-endif
-syntax on           " enable syntax highlighting
-set mouse=a         " enable mouse
-set nocompatible    " use vim defaults
-set ls=2            " always show status line
-set tabstop=4       " number of spaces for tab character
-set shiftwidth=4    " number of spaces to (auto) indent
-set scrolloff=3     " keep 3 lines when scrolling
-set showcmd         " display incomplete commands
-set showmode        " display the current mode
-set hlsearch        " highlight searches
-set incsearch       " do incremental search
-set ruler           " show the cursor position all the time
-set laststatus=2
-set visualbell t_vb=    " turn off error beep/flash
-set novisualbell    " turn off visual bell
-set nobackup        " do not keep a backup file
-set number          " show line numbers
-set numberwidth=4   " line numbering takes up to 4 spaces
-set ignorecase      "ignore case when searching
-set linebreak       " linebreaks
-set wrap            " set wrap for lines
-"set nowrap          " stop lines from wrapping
-"set noignorecase    " don't ignore case
-set title           " show title in the console title bar
-set ttyfast         " smoother changes
-"set ttyscroll=0     " turn off scrolling
-set bs=2            " backspace can delete previos characters
-set backspace=indent,eol,start " more backspace settings
-set modeline        " last lines in document sets vim mode
-set modelines=3     " number of lines checked for modelines
-set shortmess=atI   " abbreviate messages
-set nostartofline   " don't jump to first character when paging
-set whichwrap=b,s,h,l,<,>,[,]   " move freely between files
-set undolevels=200
-set cpoptions=$cF
-"set viminfo='20,<50,s10,h
+set nocompatible                  " Must come first because it changes other options.
+
+silent! call pathogen#runtime_append_all_bundles()
+silent! call pathogen#helptags()
+
+syntax enable                     " Turn on syntax highlighting.
+filetype plugin indent on         " Turn on file type detection.
+
+" runtime macros/matchit.vim        " Load the matchit plugin.
+
+set showcmd                       " Display incomplete commands.
+set showmode                      " Display the mode you're in.
+
+set backspace=indent,eol,start    " Intuitive backspacing.
+
+set hidden                        " Handle multiple buffers better.
+
+set wildmenu                      " Enhanced command line completion.
+set wildmode=list:longest         " Complete files like a shell.
+
+set ignorecase                    " Case-insensitive searching.
+set smartcase                     " But case-sensitive if expression contains a capital letter.
+
+set number                        " Show line numbers.
+set ruler                         " Show cursor position.
+
+set incsearch                     " Highlight matches as you type.
+set hlsearch                      " Highlight matches.
+
+set wrap                          " Turn on line wrapping.
+set scrolloff=3                   " Show 3 lines of context around the cursor.
+
+set title                         " Set the terminal's title
+
+set visualbell                    " No beeping.
+
+set nobackup                      " Don't make a backup before overwriting a file.
+set nowritebackup                 " And again.
+set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
+
+" UNCOMMENT TO USE
+set tabstop=2                    " Global tab width.
+set shiftwidth=2                 " And again, related.
+set expandtab                    " Use spaces instead of tabs
+
+set laststatus=2                  " Show the status line all the time
+
 set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.DS_Store,*.db
-set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]  
-filetype plugin indent on " turn on the indent plugins
+" Useful status information at bottom of screen
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
-autocmd FileType djangohtml,html,xhtml,xml source ~/.vim/plugin/closetag.vim
-
-" set noautoindent    " turn off by default, enable for specific filetypes
-" set nosmartindent   " turn off by default, enable for specific filetypes
-" set nocindent       " turn off by default, enable for specific filetypes
+" Or use vividchalk
+colorscheme elflord
 
 " NERD_tree config
 let NERDTreeChDirMode=2
 let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\.bak$', '\~$']
 let NERDTreeShowBookmarks=1
-
-" syntax for multiple tag files are
-" set tags=/my/dir1/tags, /my/dir2/tags
-set tags=tags;$HOME/.vim/tags/ "recursively searches directory for 'tags' file
-
-set expandtab		" tabs are converted to spaces
-set sm				" show matching braces
-
-" TagList Plugin Configuration
-let Tlist_Ctags_Cmd='/usr/bin/ctags' " point taglist to ctags
-let Tlist_GainFocus_On_ToggleOpen = 1      " Focus on the taglist when its toggled
-let Tlist_Close_On_Select = 1              " Close when something's selected
-let Tlist_Use_Right_Window = 1             " Project uses the left window
-let Tlist_File_Fold_Auto_Close = 1         " Close folds for inactive files
-
 map <F3> :NERDTreeToggle<CR>
-map <F4> :TlistToggle<CR>
-map <F2> :marks 
 
 " RagTag plugin config
 let g:ragtag_global_maps = 1
 
-" Map TaskList plugin
-map T : TaskList<CR>
-map P : TlistToggle<CR>
+" Tab mappings.
+map <leader>tt :tabnew<cr>
+map <leader>te :tabedit
+map <leader>tc :tabclose<cr>
+map <leader>to :tabonly<cr>
+map <leader>tn :tabnext<cr>
+map <leader>tp :tabprevious<cr>
+map <leader>tf :tabfirst<cr>
+map <leader>tl :tablast<cr>
+map <leader>tm :tabmove
+
+" Uncomment to use Jamis Buck's file opening plugin
+"map <Leader>t :FuzzyFinderTextMate<Enter>
+
+" Controversial...swap colon and semicolon for easier commands
+"nnoremap ; :
+"nnoremap : ;
+
+"vnoremap ; :
+"vnoremap : ;
+
+" Automatic fold settings for specific files. Uncomment to use.
+" autocmd FileType ruby setlocal foldmethod=syntax
+" autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
+
+" For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
+" autocmd BufNewFile,BufRead *_spec.rb compiler rspec
