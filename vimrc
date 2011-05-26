@@ -57,8 +57,14 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" Or use vividchalk
-colorscheme vividchalk
+" Esquema de Colores
+"
+" Vividchalk colores
+" colorscheme vividchalk
+" Solarized Colors
+set background=dark
+let g:Solarized_termcolors=256
+colorscheme solarized
 
 " NERD_tree config
 let NERDTreeChDirMode=2
