@@ -63,7 +63,9 @@ set statusline+=%*
 " colorscheme vividchalk
 " Solarized Colors
 set background=dark
-let g:Solarized_termcolors=256
+"let g:Solarized_termcolors=256
+"let g:solarized_termtrans=0
+call togglebg#map("<F5>")
 colorscheme solarized
 
 " NERD_tree config
@@ -98,8 +100,8 @@ map <leader>tm :tabmove
 "vnoremap : ;
 
 " Supertab completion
-au FileType python set omnifunc=pythoncomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
+"au FileType python set omnifunc=pythoncomplete#Complete
+"let g:SuperTabDefaultCompletionType = "context"
 
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby setlocal foldmethod=syntax
