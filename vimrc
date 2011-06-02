@@ -78,6 +78,9 @@ map <F3> :NERDTreeToggle<CR>
 " RagTag plugin config
 let g:ragtag_global_maps = 1
 
+" Map TaskList plugin
+map <F2> : TaskList<cr>
+
 " Tab mappings.
 map <leader>tt :tabnew<cr>
 map <leader>te :tabedit
