@@ -98,6 +98,10 @@ map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
+" Gist-vim
+let g:gist_clip_command = 'xclip -selection clipboard'
+let g:gist_open_browser_after_post = 1
+
 " Uncomment to use Jamis Buck's file opening plugin
 "map <Leader>t :FuzzyFinderTextMate<Enter>
 
