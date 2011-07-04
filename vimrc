@@ -66,7 +66,13 @@ set background=dark
 "let g:Solarized_termcolors=256
 "let g:solarized_termtrans=0
 call togglebg#map("<F5>")
-colorscheme solarized
+
+if has("gui")
+    colorscheme solarized
+    set guioptions-=T
+    set guioptions-=L
+    set guioptions-=r
+endif
 
 " NERD_tree config
 let NERDTreeChDirMode=2
@@ -108,7 +114,14 @@ map <leader>tm :tabmove
 
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby setlocal foldmethod=syntax
+
 " autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
 
-" For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
-" autocmd BufNewFile,BufRead *_spec.rb compiler rspec
+" Add json syntax highlighting
+autocmd BufNewFile,BufRead *.json set ft=javascript
+
+" Make Python follow PEP8 (http://www.python.org/dev/peps/pep-0008/)
+
+" Add json syntax highlighting
+" autocmd BufNewFile,BufRead *.json set ft=javascriptautocmd FileType python set softtabstop=4 tabstop=4 shiftwidth=4
+
