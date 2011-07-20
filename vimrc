@@ -2,9 +2,9 @@
 " Copy or symlink to ~/.vimrc or ~/_vimrc.
 
 set nocompatible                  " Must come first because it changes other options.
-
-silent! call pathogen#runtime_append_all_bundles()
+filetype off
 silent! call pathogen#helptags()
+silent! call pathogen#runtime_append_all_bundles()
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
@@ -72,6 +72,8 @@ if has("gui")
     set guioptions-=T
     set guioptions-=L
     set guioptions-=r
+    set guioptions-=b
+    set guioptions-=m
 endif
 
 " NERD_tree config
@@ -123,9 +125,3 @@ let g:gist_open_browser_after_post = 1
 
 " Add json syntax highlighting
 autocmd BufNewFile,BufRead *.json set ft=javascript
-
-" Make Python follow PEP8 (http://www.python.org/dev/peps/pep-0008/)
-
-" Add json syntax highlighting
-" autocmd BufNewFile,BufRead *.json set ft=javascriptautocmd FileType python set softtabstop=4 tabstop=4 shiftwidth=4
-
