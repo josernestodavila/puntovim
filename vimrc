@@ -137,6 +137,7 @@ if has("autocmd")
     au BufNewFile,BufRead views.py setlocal filetype=python.django
     au BufNewFile,BufRead settings.py setlocal filetype=python.django
     au BufNewFile,BufRead forms.py setlocal filetype=python.django
+    au BufWritePost *.py call Pyflakes()
 endif
 
 " Siempre pulso W por error xD
