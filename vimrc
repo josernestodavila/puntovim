@@ -125,3 +125,24 @@ let g:gist_open_browser_after_post = 1
 
 " Add json syntax highlighting
 autocmd BufNewFile,BufRead *.json set ft=javascript
+if has("autocmd")
+    " code indentation
+    au FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
+    au FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
+    au FileType xhtml setlocal tabstop=2 shiftwidth=2 softtabstop=2
+    au FileType htmldjango setlocal tabstop=2 shiftwidth=2 softtabstop=2
+    au BufNewFile,BufRead admin.py setlocal filetype=python.django
+    au BufNewFile,BufRead models.py setlocal filetype=python.django
+    au BufNewFile,BufRead urls.py setlocal filetype=python.django
+    au BufNewFile,BufRead views.py setlocal filetype=python.django
+    au BufNewFile,BufRead settings.py setlocal filetype=python.django
+    au BufNewFile,BufRead forms.py setlocal filetype=python.django
+endif
+
+" Siempre pulso W por error xD
+command! W :w
+
+nmap <leader>d :set ft=htmldjango<CR>
+
+" Simbols for tabstops and EOL's
+set listchars=tab:▸\ ,eol:¬
