@@ -37,3 +37,15 @@
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule "bundle/pony"]
+	path = bundle/pony
+	url = https://github.com/rainerborene/vim-pony.git
+[submodule "bundle/snipmate_for_django"]
+	path = bundle/snipmate_for_django
+	url = https://github.com/robhudson/snipmate_for_django.git
+[submodule "bundle/ident-object"]
+	path = bundle/ident-object
+	url = https://github.com/michaeljsmith/vim-indent-object.git
+[submodule "bundle/pep8"]
+	path = bundle/pep8
+	url = http://github.com/nvie/vim-pep8.git
