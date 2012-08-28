@@ -146,4 +146,5 @@ command! W :w
 nmap <leader>d :set ft=htmldjango<CR>
 
 " Simbols for tabstops and EOL's
+set list
 set listchars=tab:▸\ ,eol:¬
