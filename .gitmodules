@@ -62,3 +62,6 @@
 	path = bundle/zencoding
 	url = http://github.com/mattn/zencoding-vim.git
     ignore = untracked
+[submodule "bundle/css-color"]
+	path = bundle/css-color
+	url = https://github.com/skammer/vim-css-color.git
