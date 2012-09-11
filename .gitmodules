@@ -58,3 +58,7 @@
 [submodule "bundle/pyflakes"]
 	path = bundle/pyflakes
 	url = http://github.com/nvie/vim-pyflakes.git
+[submodule "bundle/zencoding"]
+	path = bundle/zencoding
+	url = http://github.com/mattn/zencoding-vim.git
+    ignore = untracked
