@@ -54,7 +54,7 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*Cap
 
 " StatusLine configuration for syntastic plugin
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " Esquema de Colores
@@ -87,7 +87,7 @@ map <F3> :NERDTreeToggle<CR>
 let g:ragtag_global_maps = 1
 
 " Map TaskList plugin
-map <F2> : TaskList<cr>
+" map <F2> : TaskList<cr>
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -137,7 +137,8 @@ if has("autocmd")
     au BufNewFile,BufRead views.py setlocal filetype=python.django
     au BufNewFile,BufRead settings.py setlocal filetype=python.django
     au BufNewFile,BufRead forms.py setlocal filetype=python.django
-    au BufWritePost *.py call Pyflakes()
+    " au BufWritePost *.py call Pyflakes()
+    " au BufWritePost *.py call Flake8()
 endif
 
 " Siempre pulso W por error xD
