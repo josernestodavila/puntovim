@@ -48,10 +48,11 @@ set shiftwidth=4                 " And again, related.
 set expandtab                    " Use spaces instead of tabs
 
 set laststatus=2                 " Show the status line all the time
+set noshowmode                   " Hide the default mode text.
 
 set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.DS_Store,*.db
 " Useful status information at bottom of screen
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+"set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 " StatusLine configuration for syntastic plugin
 set statusline+=%#warningmsg#
@@ -150,3 +151,6 @@ nmap <leader>d :set ft=htmldjango<CR>
 " Simbols for tabstops and EOL's
 set list
 set listchars=tab:▸\ ,eol:¬
+
+" Activar powerline
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
