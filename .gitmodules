@@ -72,4 +72,4 @@
 	url = git://github.com/nono/vim-handlebars.git
 [submodule "bundle/powerline"]
 	path = bundle/powerline
-	url = git@github.com:Lokaltog/powerline.git
+	url = https://github.com/Lokaltog/powerline.git
