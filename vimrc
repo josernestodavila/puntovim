@@ -64,10 +64,15 @@ set statusline+=%*
 " Vividchalk colores
 " colorscheme vividchalk
 " Solarized Colors
+" colorscheme solarized
 set background=dark
 "let g:Solarized_termcolors=256
 "let g:solarized_termtrans=0
 call togglebg#map("<F5>")
+
+if $COLORTERM == 'gnome-terminal'
+    set t_Co=256
+endif
 
 if has("gui")
     colorscheme solarized
