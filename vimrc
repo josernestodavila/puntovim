@@ -42,15 +42,17 @@ set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
 " UNCOMMENT TO USE
+set binary                       " Do not add EOL at EOF
 set tabstop=4                    " Global tab width.
 set shiftwidth=4                 " And again, related.
 set expandtab                    " Use spaces instead of tabs
 
-set laststatus=2                  " Show the status line all the time
+set laststatus=2                 " Show the status line all the time
+set noshowmode                   " Hide the default mode text.
 
 set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.DS_Store,*.db
 " Useful status information at bottom of screen
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+"set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 " StatusLine configuration for syntastic plugin
 set statusline+=%#warningmsg#
@@ -62,10 +64,15 @@ set statusline+=%*
 " Vividchalk colores
 " colorscheme vividchalk
 " Solarized Colors
+" colorscheme solarized
 set background=dark
 "let g:Solarized_termcolors=256
 "let g:solarized_termtrans=0
 call togglebg#map("<F5>")
+
+if $COLORTERM == 'gnome-terminal'
+    set t_Co=256
+endif
 
 if has("gui")
     colorscheme solarized
@@ -87,7 +94,7 @@ map <F3> :NERDTreeToggle<CR>
 let g:ragtag_global_maps = 1
 
 " Map TaskList plugin
-" map <F2> : TaskList<cr>
+map <F2> :TaskList<CR>
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -149,3 +156,6 @@ nmap <leader>d :set ft=htmldjango<CR>
 " Simbols for tabstops and EOL's
 set list
 set listchars=tab:▸\ ,eol:¬
+
+" Activar powerline
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
