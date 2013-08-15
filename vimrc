@@ -133,8 +133,6 @@ let g:gist_open_browser_after_post = 1
 " Add json syntax highlighting
 autocmd BufNewFile,BufRead *.json set ft=javascript
 
-highlight colorcolumn ctermbg=darkgray guibg=darkgray
-setlocal colorcolumn=80
 highlight BadWhitespace ctermbg=red guibg=red
 
 if has("autocmd")
@@ -150,7 +148,6 @@ if has("autocmd")
     au BufNewFile,BufRead settings.py setlocal filetype=python.django
     au BufNewFile,BufRead forms.py setlocal filetype=python.django
     " au BufWritePost *.py call Flake8()
-    au BufEnter,BufRead *.py let &colorcolumn=join(range(80,999),",")
     au BufNewFile,BufRead *.py match BadWhitespace /\t\+/
     au BufNewFile,BufRead *.py match BadWhitespace /\s\+$/
 endif
