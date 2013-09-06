@@ -66,9 +66,9 @@ set statusline+=%*
 " Solarized Colors
 " colorscheme solarized
 set background=dark
-"let g:Solarized_termcolors=256
+let g:Solarized_termcolors=256
 "let g:solarized_termtrans=0
-call togglebg#map("<F5>")
+"call togglebg#map("<F5>")
 
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
@@ -89,6 +89,7 @@ let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\.bak$', '\~$']
 let NERDTreeShowBookmarks=1
 map <F3> :NERDTreeToggle<CR>
+map <F5> :NERDTreeFind<CR>
 
 " RagTag plugin config
 let g:ragtag_global_maps = 1
@@ -110,16 +111,6 @@ map <leader>tm :tabmove
 " Gist-vim
 let g:gist_clip_command = 'xclip -selection clipboard'
 let g:gist_open_browser_after_post = 1
-
-" Uncomment to use Jamis Buck's file opening plugin
-"map <Leader>t :FuzzyFinderTextMate<Enter>
-
-" Controversial...swap colon and semicolon for easier commands
-"nnoremap ; :
-"nnoremap : ;
-
-"vnoremap ; :
-"vnoremap : ;
 
 " Supertab completion
 "au FileType python set omnifunc=pythoncomplete#Complete
