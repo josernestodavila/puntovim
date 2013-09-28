@@ -66,9 +66,9 @@ set statusline+=%*
 " Solarized Colors
 " colorscheme solarized
 set background=dark
-"let g:Solarized_termcolors=256
+let g:Solarized_termcolors=256
 "let g:solarized_termtrans=0
-call togglebg#map("<F5>")
+"call togglebg#map("<F5>")
 
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
@@ -89,6 +89,7 @@ let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\.bak$', '\~$']
 let NERDTreeShowBookmarks=1
 map <F3> :NERDTreeToggle<CR>
+map <F5> :NERDTreeFind<CR>
 
 " RagTag plugin config
 let g:ragtag_global_maps = 1
@@ -111,16 +112,6 @@ map <leader>tm :tabmove
 let g:gist_clip_command = 'xclip -selection clipboard'
 let g:gist_open_browser_after_post = 1
 
-" Uncomment to use Jamis Buck's file opening plugin
-"map <Leader>t :FuzzyFinderTextMate<Enter>
-
-" Controversial...swap colon and semicolon for easier commands
-"nnoremap ; :
-"nnoremap : ;
-
-"vnoremap ; :
-"vnoremap : ;
-
 " Supertab completion
 "au FileType python set omnifunc=pythoncomplete#Complete
 "let g:SuperTabDefaultCompletionType = "context"
@@ -132,6 +123,9 @@ let g:gist_open_browser_after_post = 1
 
 " Add json syntax highlighting
 autocmd BufNewFile,BufRead *.json set ft=javascript
+
+highlight BadWhitespace ctermbg=red guibg=red
+
 if has("autocmd")
     " code indentation
     au FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
@@ -144,8 +138,9 @@ if has("autocmd")
     au BufNewFile,BufRead views.py setlocal filetype=python.django
     au BufNewFile,BufRead settings.py setlocal filetype=python.django
     au BufNewFile,BufRead forms.py setlocal filetype=python.django
-    " au BufWritePost *.py call Pyflakes()
     " au BufWritePost *.py call Flake8()
+    au BufNewFile,BufRead *.py match BadWhitespace /\t\+/
+    au BufNewFile,BufRead *.py match BadWhitespace /\s\+$/
 endif
 
 " Siempre pulso W por error xD
