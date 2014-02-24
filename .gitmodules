@@ -66,6 +66,9 @@
 [submodule "bundle/TaskList"]
 	path = bundle/TaskList
 	url = https://github.com/vim-scripts/TaskList.vim.git
+[submodule "bundle/gitgutter"]
+	path = bundle/gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
 [submodule "bundle/emmet"]
 	path = bundle/emmet
 	url = http://github.com/mattn/emmet-vim.git
