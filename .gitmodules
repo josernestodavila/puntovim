@@ -72,6 +72,3 @@
 [submodule "bundle/emmet"]
 	path = bundle/emmet
 	url = http://github.com/mattn/emmet-vim.git
-[submodule "bundle/gitgutter"]
-	path = bundle/gitgutter
-	url = https://github.com/airblade/vim-gitgutter.git
