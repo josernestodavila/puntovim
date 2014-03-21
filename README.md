@@ -1,7 +1,7 @@
 Instalación:
-
+   ``` bash
    git clone git://github.com/josernestodavila/puntovim.git ~/.vim
-
+   ```
 Crear enlaces simbólicos:
 
    ln -s ~/.vim/vimrc ~/.vimrc
