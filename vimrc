@@ -112,6 +112,9 @@ map <leader>tm :tabmove
 let g:gist_clip_command = 'xclip -selection clipboard'
 let g:gist_open_browser_after_post = 1
 
+" Vim for Dustjs
+let g:surround_{char2nr('d')} = "{\r}"
+
 " Supertab completion
 "au FileType python set omnifunc=pythoncomplete#Complete
 "let g:SuperTabDefaultCompletionType = "context"

@@ -72,3 +72,9 @@
 [submodule "bundle/emmet"]
 	path = bundle/emmet
 	url = http://github.com/mattn/emmet-vim.git
+[submodule "bundle/vim-less"]
+	path = bundle/vim-less
+	url = https://github.com/groenewege/vim-less.git
+[submodule "bundle/dustjs"]
+	path = bundle/dustjs
+	url = git://github.com/jimmyhchan/dustjs.vim.git
