@@ -25,6 +25,7 @@ set ignorecase                    " Case-insensitive searching.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
 
 set number                        " Show line numbers.
+set cursorline                    " Highlight cursor line.
 set ruler                         " Show cursor position.
 
 set incsearch                     " Highlight matches as you type.
@@ -62,6 +63,7 @@ set statusline+=%*
 " Esquema de Colores
 "
 " Vividchalk colores
+colorscheme slate
 " colorscheme vividchalk
 " Solarized Colors
 " colorscheme solarized
@@ -120,17 +122,13 @@ let g:surround_{char2nr('d')} = "{\r}"
 "let g:SuperTabDefaultCompletionType = "context"
 
 " Automatic fold settings for specific files. Uncomment to use.
-" autocmd FileType ruby setlocal foldmethod=syntax
-
-" autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
-
-" Add json syntax highlighting
-autocmd BufNewFile,BufRead *.json set ft=javascript
+" au FileType ruby setlocal foldmethod=syntax
 
 highlight BadWhitespace ctermbg=red guibg=red
 
 if has("autocmd")
     " code indentation
+    au FileType css setlocal shiftwidth=2 tabstop=2
     au FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
     au FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
     au FileType xhtml setlocal tabstop=2 shiftwidth=2 softtabstop=2
@@ -141,6 +139,7 @@ if has("autocmd")
     au BufNewFile,BufRead views.py setlocal filetype=python.django
     au BufNewFile,BufRead settings.py setlocal filetype=python.django
     au BufNewFile,BufRead forms.py setlocal filetype=python.django
+    au BufNewFile,BufRead *.json setlocal ft=javascript
     " au BufWritePost *.py call Flake8()
     au BufNewFile,BufRead *.py match BadWhitespace /\t\+/
     au BufNewFile,BufRead *.py match BadWhitespace /\s\+$/
